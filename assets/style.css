@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+h3 {
+    font-weight: bold;
+
+}
+
+.bg-teal {
+    background-color: teal;
+}
+
+.forecast {
+
+    font-size: 0.9em;
+}
+
+span {
+    font-size: 1em;
+}
+
+li:hover {
+    background-color: lightslategray;
+    text-decoration: underline;
+}
