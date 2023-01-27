@@ -7,10 +7,10 @@ Humidity
 Wind Speed
 
 ## Github Repo Link
-https://github.com/siddz415/Work-Day-Scheduler
+https://github.com/siddz415/Weather-app
 
 ## Github Pages Link
-https://siddz415.github.io/Work-Day-Scheduler/
+https://siddz415.github.io/Weather-app/
 
 ## Screenshot
-![Screenshot of the Site](./assets/workday.png) 
+![Screenshot of the Site](./assets/Weather.png) 

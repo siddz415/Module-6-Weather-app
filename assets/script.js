@@ -5,15 +5,38 @@ var currentcity = document.getElementById('currentcity')
 var currentTemperature = document.getElementById("temperature");
 var currentHumidty = document.getElementById("humidity");
 var currentWSpeed = document.getElementById("windspeed");
-var currentIcon = document.getElementById('currentIcon')
+var currentIcon = document.getElementById('currentIcon');
+var listGroups = document.getElementById('listgroup')
 var ApiKeys = 'eba5c6fab43db05b5ed6b0cae2ececc4';
 var dayjs = dayjs()
 var iconURL = "http://openweathermap.org/img/wn/"
 // iconURL + main.icon + ".png"
 
+function showCityBtns() {
+    listGroups.textContent = '';
+    var cityArray = JSON.parse(localStorage.getItem('cities'))
+    for (var index = 0; index < cityArray.length; index++) {
+        var city = cityArray[index];
+        var btn = document.createElement('button')
+        btn.textContent = city;
+        btn.classList.add('cityBtn')
+        listGroups.appendChild(btn);
+
+    }
+}
+
+function showCity(event) {
+    var city = event.target.textContent
+    weatherLookup(city);
+}
+
 function getCity(event) {
     event.preventDefault()
     var city = searchCity.value
+    var cityArray = JSON.parse(localStorage.getItem('cities')) || []
+    cityArray.push(city)
+    localStorage.setItem('cities', JSON.stringify(cityArray))
+    showCityBtns()
     weatherLookup(city)
 }
 
@@ -45,7 +68,7 @@ function getFiveDay(lat, lon) {
             console.log(fiveData)
 
             // day 1 getting element by id to recieve data from Api
-            document.getElementById('Date0').textContent = dayjs.format('dddd') 
+            document.getElementById('Date0').textContent = dayjs.format('dddd')
             document.getElementById('Img0').setAttribute("src", iconURL + fiveData.list[0].weather[0].icon + '.png')
             document.getElementById('Temp0').textContent = fiveData.list[0].main.temp
             document.getElementById('Humidity0').textContent = fiveData.list[0].main.humidity
@@ -83,3 +106,5 @@ function getFiveDay(lat, lon) {
 }
 
 searchButton.addEventListener('click', getCity)
+listGroups.addEventListener('click', showCity)
+showCityBtns()
