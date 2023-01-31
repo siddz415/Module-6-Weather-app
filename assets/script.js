@@ -9,7 +9,7 @@ var currentIcon = document.getElementById('currentIcon');
 var listGroups = document.getElementById('listgroup')
 var ApiKeys = 'eba5c6fab43db05b5ed6b0cae2ececc4';
 var dayjs = dayjs()
-var iconURL = "http://openweathermap.org/img/wn/"
+var iconURL = "https://openweathermap.org/img/wn/"
 // iconURL + main.icon + ".png"
 
 function showCityBtns() {
@@ -42,7 +42,7 @@ function getCity(event) {
 
 
 function weatherLookup(city) {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + ApiKeys + "&units=imperial") // using fetch for Api
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + ApiKeys + "&units=imperial") // using fetch for Api
         .then(function (response) {
             return response.json();
         })
